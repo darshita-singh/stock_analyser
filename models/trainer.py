@@ -35,6 +35,9 @@ def train(
         f"lag: {lag_df.shape}, rolling: {rolling_df.shape}"
     )
 
+    # Ensure lag_df and rolling_df have the same number of rows
+    lag_df = lag_df.reindex(rolling_df.index)
+
     X_array = np.concatenate([lag_df.values, rolling_df.values], axis=1)
     feature_cols = list(lag_df.columns) + list(rolling_df.columns)
     X = pd.DataFrame(X_array, columns=feature_cols)
