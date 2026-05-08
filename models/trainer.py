@@ -34,6 +34,7 @@ def train(
         f"Assembling feature matrix — "
         f"lag: {lag_df.shape}, rolling: {rolling_df.shape}"
     )
+    assert lag_df.shape[0] == rolling_df.shape[0], "Mismatched row counts between lag and rolling dataframes"
 
     X_array = np.concatenate([lag_df.values, rolling_df.values], axis=1)
     feature_cols = list(lag_df.columns) + list(rolling_df.columns)
