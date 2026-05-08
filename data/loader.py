@@ -52,7 +52,7 @@ def load_data() -> pd.DataFrame:
     df = pd.read_csv(SAMPLE_DATA_PATH, parse_dates=["Date"])
     df = df.sort_values("Date").reset_index(drop=True)
 
-    df = df.rename(columns={"Close": "close_price"})
+    df = df.rename(columns={"Close": "Close"})
 
     logger.info(f"Data loaded: {len(df)} rows | columns: {list(df.columns)}")
     return df
