@@ -19,7 +19,7 @@ def register_model(model, name: str = "forecaster") -> None:
     """
     _registry["model"] = model
     _registry["metadata"] = {"name": name}
-
+    _registry["estimator"] = model
     with open(MODEL_STORE_PATH, "wb") as fh:
         pickle.dump(_registry, fh)
 
