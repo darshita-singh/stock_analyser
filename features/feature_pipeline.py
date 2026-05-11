@@ -27,7 +27,7 @@ def build_feature_matrix(
     logger.info("Starting feature matrix construction.")
 
     target = df["Close"].shift(-1).rename("target")
-
+    target = df["close_price"].shift(-1).rename("target")
     lag_df = compute_lag_features(df, target_col=TARGET_COLUMN)
     rolling_df = compute_rolling_features(df, target_col=TARGET_COLUMN)
 
