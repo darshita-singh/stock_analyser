@@ -7,7 +7,7 @@ logger = get_logger(__name__)
 
 
 def compute_rolling_features(
-    df: pd.DataFrame, target_col: str = TARGET_COLUMN
+    df: pd.DataFrame, target_col: str = 'Close'
 ) -> pd.DataFrame:
     """
     Compute rolling-window statistics (mean, std, min, max) for the target.

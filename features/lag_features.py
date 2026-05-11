@@ -7,7 +7,7 @@ logger = get_logger(__name__)
 
 
 def compute_lag_features(
-    df: pd.DataFrame, target_col: str = TARGET_COLUMN
+    df: pd.DataFrame, target_col: str = 'Close'
 ) -> pd.DataFrame:
     """
     Shift the target column by each period defined in LAG_PERIODS.
